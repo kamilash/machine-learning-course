@@ -46,7 +46,9 @@ J = 1/m * sum(sqrErrors);
 aux = X'*(h - y);
 grad = 1/m * aux;
 
-newtheta = [0;theta(2:length(theta));];
+newtheta = [0;theta(2:end);];
+% or
+% newtheta = [0;theta(2:length(theta));];
 
 z = X*newtheta;
 h = sigmoid(z);
