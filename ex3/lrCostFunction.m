@@ -55,7 +55,7 @@ sqrErrors = (-y' * log(h)) - ((1-y)' * log(1 - h));
 
 J = J + lambda/(2*m) * sum(newtheta.^2);
 
-grad = grad .+ (lambda/(2*m)) * 2*newtheta;
+grad = grad + (lambda/(2*m)) * 2*newtheta;
 
 
 
