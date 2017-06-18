@@ -37,6 +37,29 @@ grad = zeros(size(theta));
 %
 
 
+z = X*theta;
+h = sigmoid(z);
+
+sqrErrors = (-y' * log(h)) - ((1-y)' * log(1 - h));
+J = 1/m * sum(sqrErrors);
+
+aux = X'*(h - y);
+grad = 1/m * aux;
+
+newtheta = [0;theta(2:length(theta));];
+
+z = X*newtheta;
+h = sigmoid(z);
+
+sqrErrors = (-y' * log(h)) - ((1-y)' * log(1 - h));
+
+J = J + lambda/(2*m) * sum(newtheta.^2);
+
+grad = grad .+ (lambda/(2*m)) * 2*newtheta;
+
+
+
+
 
 
 
